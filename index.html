@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wie betaalt de rekening?</title>
+  <meta name="description" content="Een levenssimulatie over de Nederlandse zorgverzekering: van 18 tot 80. Wie betaalt uiteindelijk de rekening wanneer belangen botsen?">
+  <meta name="theme-color" content="#e6ece6">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%BE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="overslaan" href="#app">Naar de inhoud</a>
+
+  <header class="kop">
+    <button type="button" class="kop__logo" id="logo" aria-label="Wie betaalt de rekening? Naar het startscherm">
+      <span aria-hidden="true">🧾</span> Wie betaalt de rekening?
+    </button>
+    <button type="button" class="knop knop--klein geluid" id="geluid" aria-pressed="false">
+      <span class="geluid__icoon" aria-hidden="true">🔇</span>
+      <span class="geluid__tekst">Geluid uit</span>
+    </button>
+  </header>
+
+  <main id="app" class="app">
+    <!-- Wordt overschreven zodra js/main.js start. -->
+    <div class="laad-melding" id="laad-melding">
+      <p>De game wordt geladen…</p>
+    </div>
+  </main>
+
+  <div class="meldingen" id="meldingen" aria-live="polite"></div>
+
+  <noscript>
+    <p class="laad-melding">Deze game heeft JavaScript nodig. Zet JavaScript aan in je browser.</p>
+  </noscript>
+
+  <script>
+    // ES-modules werken niet als je index.html dubbelklikt (file://). Laat dan uitleg zien.
+    if (location.protocol === 'file:') {
+      document.getElementById('laad-melding').innerHTML =
+        '<h1>Open de game via een webserver</h1>' +
+        '<p>Browsers laden deze game niet als je <code>index.html</code> direct opent. Start een lokale server in de projectmap, bijvoorbeeld:</p>' +
+        '<pre>npx serve</pre><p>of</p><pre>python -m http.server</pre>' +
+        '<p>Open daarna het adres dat in je terminal verschijnt. Online (GitHub Pages) werkt alles vanzelf.</p>';
+    }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
